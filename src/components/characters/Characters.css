@@ -1,0 +1,28 @@
+.characters-list{
+  margin: 1rem;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-gap: 20px;
+}
+
+.characters-list li{
+  border-radius: 20px;
+  overflow: hidden;
+  padding-bottom: 15px;
+  background-color: #4a7bdb;
+  box-shadow: 0 0 3px; 
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.characters-list p {
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+img{
+  max-width: 100%;
+}
