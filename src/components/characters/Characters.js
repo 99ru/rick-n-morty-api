@@ -40,10 +40,15 @@ const Characters = ({ search }) => {
   };
 
   useEffect(() => {
-    setPage(1);
-    fetchCharacters(1, search);
-  }, [search]);
+    setPage(1); 
+    fetchCharacters(1, search); 
+  }, [search]); 
 
+  useEffect(() => {
+    if (page !== 1) { 
+      fetchCharacters(page, search);
+    }
+  }, [page]); 
   return (
     <>
       <h1>Characters</h1>
