@@ -1,36 +1,16 @@
 .characters-list {
-  margin: 0;
-  padding: 0;
+  margin: 0 4rem;
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;  
 }
+
 .characters-list li {
-  flex-basis: calc(10% - 1rem); 
-  margin: 0.5rem; 
   border-radius: 20px;
   overflow: hidden;
-  background-color: #4a7bdb;
+  background-color: #202329;
   box-shadow: 0 0 3px;
-  text-align: center;
-  font-weight: 700;
-}
-@media screen and (max-width: 1024px) {
-  .characters-list li {
-    flex-basis: calc(30% - 1rem); /* adjust as needed */
-  }
-}
-@media screen and (max-width: 768px) {
-  .characters-list li {
-    flex-basis: calc(30% - 1rem); /* adjust as needed */
-  }
-}
-@media screen and (max-width: 480px) {
-  .characters-list li {
-    flex-basis: auto;
-  }
 }
 
 .characters-list li img {
@@ -41,14 +21,12 @@
 }
 .characters-list p {
   color: white;
-  padding: 0.5rem;
   font-size: 1rem;
-  font-weight: 700;
 }
 .character-status {
   color: white;
+  margin-bottom: 1rem;
 }
-
 .status-dot {
   display: inline-block;
   width: 10px;
@@ -56,15 +34,12 @@
   border-radius: 50%;
   margin-right: 5px;
 }
-
 .status-dot.alive {
   background: #55cc44;
 }
-
 .status-dot.dead {
   background: #d63d2e;
 }
-
 .status-dot.unknown {
   background: grey;
 }

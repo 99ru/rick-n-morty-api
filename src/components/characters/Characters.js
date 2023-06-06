@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Pagination from "@mui/material/Pagination";
 import Dialog from "@mui/material/Dialog";
@@ -15,6 +15,7 @@ const Characters = ({ search }) => {
   const [totalPages, setTotalPages] = useState(0);
   const [open, setOpen] = useState(false);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const prevSearch = useRef(search);
 
   const fetchCharacters = async (page = 1, search = "") => {
     setLoading(true);
@@ -39,16 +40,14 @@ const Characters = ({ search }) => {
     setOpen(false);
   };
 
-  useEffect(() => {
-    setPage(1); 
-    fetchCharacters(1, search); 
-  }, [search]); 
-
-  useEffect(() => {
-    if (page !== 1) { 
-      fetchCharacters(page, search);
-    }
-  }, [page]); 
+useEffect(() => {
+  fetchCharacters(page, search);
+  if (search !== prevSearch.current) {
+    setPage(1);
+    prevSearch.current = search;
+  }
+}, [search, page]);
+  
   return (
     <>
       <h1>Characters</h1>
