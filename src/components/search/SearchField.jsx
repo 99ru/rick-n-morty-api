@@ -1,12 +1,16 @@
+import React from 'react';
 import './search.css'
 
-const SearchField = () => {
+const SearchField = ({ setSearch }) => {
+
+  const handleSearch = (event) => {
+  setSearch(event.target.value);
+};
+
   return (
     <div className="search-field">
-      <input type="text" placeholder="search for a character" />
-      <button>search</button>
+      <input type="text" placeholder="search for a character" onChange={handleSearch} />
     </div>
   );
 }
 export default SearchField;
-
