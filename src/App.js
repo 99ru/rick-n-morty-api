@@ -11,13 +11,13 @@ function App() {
   const [search, setSearch] = useState("");
 
   return (
-    <div className="App">
+    <>
       <Header />
       <Hero />
       <SearchField setSearch={setSearch} />
       <Characters search={search} />
       <Footer />
-    </div>
+    </>
   );
 }
 

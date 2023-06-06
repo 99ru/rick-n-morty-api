@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Pagination from '@mui/material/Pagination';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import './Characters.css'
+import Pagination from "@mui/material/Pagination";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import "./Characters.css";
 
 const URL = "https://rickandmortyapi.com/api/character/";
 
@@ -40,8 +40,9 @@ const Characters = ({ search }) => {
   };
 
   useEffect(() => {
-    fetchCharacters(page, search);
-  }, [page, search]);
+    setPage(1);
+    fetchCharacters(1, search);
+  }, [search]);
 
   return (
     <>
@@ -51,14 +52,20 @@ const Characters = ({ search }) => {
       ) : (
         <>
           <ul className="characters-list">
-            {characters.map(character => (
+            {characters.map((character) => (
               <li key={character.id}>
-                <img 
-                  src={character.image} 
-                  alt={character.name} 
-                  onClick={() => handleClickOpen(character)} 
+                <img
+                  src={character.image}
+                  alt={character.name}
+                  onClick={() => handleClickOpen(character)}
                 />
                 <p>{character.name}</p>
+                <p className="character-status">
+                  <span
+                    className={`status-dot ${character.status.toLowerCase()}`}
+                  ></span>
+                  {character.status}
+                </p>
               </li>
             ))}
           </ul>
@@ -70,20 +77,28 @@ const Characters = ({ search }) => {
             color="primary"
           />
           <Dialog open={open} onClose={handleClose}>
-  <DialogTitle>{selectedCharacter?.name}</DialogTitle>
-  <DialogContent>
-    <img src={selectedCharacter?.image} alt={selectedCharacter?.name} className="dialog-image"/>
-    <p className="dialog-text">Status: {selectedCharacter?.status}</p>
-    <p className="dialog-text">Species: {selectedCharacter?.species}</p>
-    <p className="dialog-text">Type: {selectedCharacter?.type}</p>
-    <p className="dialog-text">Gender: {selectedCharacter?.gender}</p>
-    <p className="dialog-text">Origin: {selectedCharacter?.origin?.name}</p>
-  </DialogContent>
-</Dialog>
+            <DialogTitle>{selectedCharacter?.name}</DialogTitle>
+            <DialogContent>
+              <img
+                src={selectedCharacter?.image}
+                alt={selectedCharacter?.name}
+                className="dialog-image"
+              />
+              <p className="dialog-text">Status: {selectedCharacter?.status}</p>
+              <p className="dialog-text">
+                Species: {selectedCharacter?.species}
+              </p>
+              <p className="dialog-text">Type: {selectedCharacter?.type}</p>
+              <p className="dialog-text">Gender: {selectedCharacter?.gender}</p>
+              <p className="dialog-text">
+                Origin: {selectedCharacter?.origin?.name}
+              </p>
+            </DialogContent>
+          </Dialog>
         </>
       )}
     </>
   );
-}
+};
 
 export default Characters;
