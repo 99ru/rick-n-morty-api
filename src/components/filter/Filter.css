@@ -1,0 +1,26 @@
+.filter-form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 10px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.filter-group label {
+  font-weight: bold;
+  color: #333;
+}
+
+.filter-group select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+   background-color: #202329;
+   color: white;
+}
