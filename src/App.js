@@ -1,3 +1,4 @@
+// App.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
@@ -21,6 +22,10 @@ function App() {
   const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
+    setPage(1);
+  }, [status, gender, planet, species]);
+
+  useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get(
         `${URL}?name=${search}&status=${status}&gender=${gender}&origin=${planet}&species=${species}&page=${page}`
@@ -30,7 +35,6 @@ function App() {
     };
 
     fetchData();
-    setPage(1);
   }, [search, status, gender, planet, species, page]);
 
   return (
