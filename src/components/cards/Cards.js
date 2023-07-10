@@ -1,7 +1,7 @@
 // Cards.js
 import React from 'react';
 import CardItem from './CardItem';
-import './Cards.css'; // assuming you saved your CSS in Cards.css file
+import './Cards.css';
 
 function Cards({ characters }) {
   return (

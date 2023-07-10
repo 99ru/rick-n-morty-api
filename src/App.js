@@ -39,7 +39,6 @@ function App() {
   return (
     <>
       <Header />
-      {/* <Hero /> */}
       <SearchField setSearch={setSearch} />
       <Filter
         setGender={setGender}
