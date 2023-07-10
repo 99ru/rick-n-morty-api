@@ -9,7 +9,6 @@
 .filter-group {
   display: flex;
   flex-direction: column;
-  
 }
 
 .filter-group label {

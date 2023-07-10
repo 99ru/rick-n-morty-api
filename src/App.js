@@ -6,7 +6,6 @@ import Header from "./components/header/Header";
 import SearchField from "./components/search/SearchField";
 import Cards from "./components/cards/Cards";
 import Filter from "./components/filter/Filter";
-import Hero from "./components/hero/Hero";
 import Pagination from "@mui/material/Pagination";
 
 const URL = "https://rickandmortyapi.com/api/character/";
@@ -40,7 +39,7 @@ function App() {
   return (
     <>
       <Header />
-      <Hero />
+      {/* <Hero /> */}
       <SearchField setSearch={setSearch} />
       <Filter
         setGender={setGender}
